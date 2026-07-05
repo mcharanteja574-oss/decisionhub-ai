@@ -114,6 +114,24 @@ Set `GEMINI_API_KEY` in `.env`. If the key is absent, quota-limited, or the Gemi
 
 Never commit `.env`. Use `.env.example` for documentation and configure secrets in Cloud Run environment variables.
 
+## Screenshots
+
+### Dashboard
+
+![Dashboard](docs/images/dashboard.png)
+
+### AI Decision Analysis
+
+![AI Decision Analysis](docs/images/analysis.png)
+
+### Decision Replay
+
+![Decision Replay](docs/images/replay.png)
+
+### Interactive Map
+
+![Interactive Map](docs/images/map.png)
+
 ## Docker
 
 ```bash
