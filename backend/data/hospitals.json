@@ -1,0 +1,31 @@
+{
+  "hospitals": [
+    {
+      "id": "hospital-1",
+      "name": "City General Hospital",
+      "lat": 12.971,
+      "lng": 77.594,
+      "beds": 420,
+      "occupancy": 82,
+      "emergency_capacity": "strained"
+    },
+    {
+      "id": "hospital-2",
+      "name": "North Medical Center",
+      "lat": 13.022,
+      "lng": 77.59,
+      "beds": 260,
+      "occupancy": 74,
+      "emergency_capacity": "available"
+    },
+    {
+      "id": "hospital-3",
+      "name": "East Care Institute",
+      "lat": 12.987,
+      "lng": 77.713,
+      "beds": 310,
+      "occupancy": 88,
+      "emergency_capacity": "critical"
+    }
+  ]
+}

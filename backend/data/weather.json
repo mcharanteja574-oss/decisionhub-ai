@@ -1,0 +1,23 @@
+{
+  "location": "Bengaluru Resilience Zone",
+  "forecast": [
+    {
+      "time": "Tomorrow 06:00",
+      "rainfall_mm": 42,
+      "condition": "Moderate rain",
+      "wind_kph": 22
+    },
+    {
+      "time": "Tomorrow 12:00",
+      "rainfall_mm": 95,
+      "condition": "Heavy rainfall",
+      "wind_kph": 34
+    },
+    {
+      "time": "Tomorrow 18:00",
+      "rainfall_mm": 118,
+      "condition": "Very heavy rainfall",
+      "wind_kph": 39
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "reports": [
+    {
+      "id": "report-1",
+      "area": "Mahadevapura",
+      "type": "drain overflow",
+      "severity": "high",
+      "count": 18
+    },
+    {
+      "id": "report-2",
+      "area": "KR Market",
+      "type": "underpass flooding",
+      "severity": "critical",
+      "count": 11
+    },
+    {
+      "id": "report-3",
+      "area": "Hebbal",
+      "type": "traffic congestion",
+      "severity": "medium",
+      "count": 27
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "roads": [
+    {
+      "id": "road-1",
+      "name": "Outer Ring Road East",
+      "lat": 12.982,
+      "lng": 77.702,
+      "status": "Waterlogging likely",
+      "flood_risk": "high",
+      "traffic": "heavy"
+    },
+    {
+      "id": "road-2",
+      "name": "KR Market Underpass",
+      "lat": 12.963,
+      "lng": 77.577,
+      "status": "Closure recommended",
+      "flood_risk": "high",
+      "traffic": "moderate"
+    },
+    {
+      "id": "road-3",
+      "name": "Airport Corridor",
+      "lat": 13.055,
+      "lng": 77.62,
+      "status": "Operational with delays",
+      "flood_risk": "medium",
+      "traffic": "heavy"
+    }
+  ]
+}

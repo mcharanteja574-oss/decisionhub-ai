@@ -1,0 +1,28 @@
+{
+  "shelters": [
+    {
+      "id": "shelter-1",
+      "name": "Shelter A",
+      "lat": 12.976,
+      "lng": 77.612,
+      "capacity": 600,
+      "status": "ready"
+    },
+    {
+      "id": "shelter-2",
+      "name": "Community Hall West",
+      "lat": 12.959,
+      "lng": 77.556,
+      "capacity": 350,
+      "status": "ready"
+    },
+    {
+      "id": "shelter-3",
+      "name": "Sports Complex East",
+      "lat": 12.991,
+      "lng": 77.681,
+      "capacity": 500,
+      "status": "staffing required"
+    }
+  ]
+}
