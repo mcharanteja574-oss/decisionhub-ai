@@ -28,7 +28,7 @@ export default function ScenarioInput({ scenario, setScenario, onAnalyze, loadin
           {error || "Gemini enriches the plan when an API key is configured; fallback reasoning keeps the demo responsive."}
         </p>
         <button
-          onClick={() => onAnalyze()}
+          onClick={() => onAnalyze({ scenario })}
           disabled={loading}
           className="inline-flex items-center justify-center gap-2 rounded-lg bg-googleBlue px-5 py-3 text-sm font-bold text-white shadow-glow transition hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-60"
         >

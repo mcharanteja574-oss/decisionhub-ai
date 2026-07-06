@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { analyzeScenario } from "../services/api";
 
 const DEFAULT_SCENARIO = "Heavy rainfall expected tomorrow with hospital occupancy at 82%.";
@@ -113,6 +113,8 @@ const initialResult = {
 };
 
 export function useDecisionAnalysis() {
+  const requestIdRef = useRef(0);
+  const simulatorReadyRef = useRef(false);
   const [scenario, setScenario] = useState(DEFAULT_SCENARIO);
   const [simulator, setSimulator] = useState({
     rainfall_mm: 95,
@@ -132,6 +134,9 @@ export function useDecisionAnalysis() {
 
   const analyze = useCallback(
     async (overrides = {}) => {
+      const requestId = requestIdRef.current + 1;
+      requestIdRef.current = requestId;
+      const scenarioText = overrides.scenario ?? scenario;
       setLoading(true);
       setError("");
       setAnalysisMeta((current) => ({
@@ -139,14 +144,17 @@ export function useDecisionAnalysis() {
         status: "Generating Decision Intelligence Report",
       }));
       try {
-        const scenarioSignals = extractScenarioSignals(scenario);
+        const scenarioSignals = extractScenarioSignals(scenarioText);
         const payload = {
-          scenario,
+          scenario: scenarioText,
           ...simulator,
           ...scenarioSignals,
           ...overrides,
         };
         const data = await analyzeScenario(payload);
+        if (requestId !== requestIdRef.current) {
+          return;
+        }
         setResult(data);
         setAnalysisMeta((current) => ({
           status: "Generated successfully",
@@ -159,13 +167,18 @@ export function useDecisionAnalysis() {
           source: "Gemini + Decision Intelligence Engine",
         }));
       } catch (err) {
+        if (requestId !== requestIdRef.current) {
+          return;
+        }
         setError(err.message || "Analysis failed.");
         setAnalysisMeta((current) => ({
           ...current,
           status: "Generation failed",
         }));
       } finally {
-        setLoading(false);
+        if (requestId === requestIdRef.current) {
+          setLoading(false);
+        }
       }
     },
     [scenario, simulator]
@@ -176,6 +189,10 @@ export function useDecisionAnalysis() {
   }, []);
 
   useEffect(() => {
+    if (!simulatorReadyRef.current) {
+      simulatorReadyRef.current = true;
+      return undefined;
+    }
     const handle = window.setTimeout(() => {
       analyze();
     }, 450);
